@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Shootable
+  - PlantsAndFruits
+  - GroundAnimal
+  - GroundPreyAnimal
+  - GroundSurface
+  - Herbivour
+  - Carnivorous
+  - hud
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - hud
+  - Lighting
+  - Ground
+  - Postprocessing
+  - grass
+  - Primary Producers
+  - Primary Consumer
+  - Secondary Consumer
+  - Tertiary Consumer
+  - Apex Predator
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
