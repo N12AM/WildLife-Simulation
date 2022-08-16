@@ -71,11 +71,13 @@ public class FoodBehaviourModel : MonoBehaviour
                 _movementBehaviourModel.MoveAgent(FindVisibleNearestObject(detectedObjects));
                
                 ConsumeFood();
+                yield return null;
             }
             
             //no need to use detection every frame; so we add a delay 
             yield return new WaitForSeconds(foodDetectionSamplingRate);
-            _movementBehaviourModel.StartRandomDirectionalMovement();
+            // Debug.Log("Random movement again");
+            // _movementBehaviourModel.StartRandomDirectionalMovement();
         }
     } 
 
@@ -176,7 +178,8 @@ public class FoodBehaviourModel : MonoBehaviour
         for (;;)
         {
             yield return new WaitForSeconds(hungerDelay);
-
+            
+            Debug.Log("hunger level: "+hungerDesirability);
             if (hungerDesirability == 0)
             {
                 print("hunger zero");
@@ -185,7 +188,8 @@ public class FoodBehaviourModel : MonoBehaviour
                 {
                     _hungerBar.SetCurrentHunger(hungerDesirability);
                 }
-
+                
+                Debug.Log(_startFoodDetectionCoroutine);
                 if (_startFoodDetectionCoroutine != null)
                 {
                     StopCoroutine(_startFoodDetectionCoroutine);
@@ -282,11 +286,16 @@ public class FoodBehaviourModel : MonoBehaviour
         //if not hungry enable random movement and disable food hunt
         else
         {
+            // the following line is making the prey agents to stick to the food source
+            // reason, it is stopping the food searching system system but does not tell what to do next.
             if (_startFoodDetectionCoroutine != null)
             {
                 StopCoroutine(_startFoodDetectionCoroutine);
                 _startFoodDetectionCoroutine = null;
-                // print("stop");
+                
+                print("stop");
+                Debug.Log("Random movement again");
+                _movementBehaviourModel.StartRandomDirectionalMovement();
             }
         }
         
